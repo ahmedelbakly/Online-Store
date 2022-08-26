@@ -1,0 +1,58 @@
+<%- include("./parts/heed.ejs")  %>
+
+
+<div class="container">
+  <%- include("./parts/nav.ejs")  %>
+  <form class="form-signup" action="/admin/add" method="POST" enctype="multipart/form-data">
+    <h2 class="text-white">Add New Product</h2>
+    <input type="text" name="name" id="" placeholder="product Name" />
+
+    <% let nameErr  = productError.find(err=> err.param ==="name") %>
+    <% if (nameErr) { %>
+    <span class="alert text-white fs-6 text-center"><%= nameErr.msg %> </span>
+    <% } %>
+
+    <input type="number" name="price" id="" placeholder="price" />
+
+    <% let priceErr  = productError.find(err=> err.param ==="price") %>
+    <% if (priceErr) { %>
+    <span class="alert text-white fs-6 text-center"><%= priceErr.msg %> </span>
+    <% } %>
+    <input type="text" name="description" id="" placeholder="description" />
+
+    <% let descriptionErr  = productError.find(err=> err.param ==="description") %>
+    <% if (descriptionErr) { %>
+    <span class="alert text-white fs-6 text-center"><%= descriptionErr.msg %> </span>
+    <% } %>
+   <select name="category" id="">
+    <option value="electronic">electronic</option>
+    <option value="mobile">mobile</option>
+    <option value="clothes">clothes</option>
+    <option value="other">Other</option>
+   </select>
+  
+    <% let categoryErr  = productError.find(err=> err.param ==="category") %>
+    <% if (categoryErr) { %>
+    <span class="alert text-white fs-6 text-center"><%= categoryErr.msg %> </span>
+    <% } %>
+
+  <input type="file" name="image" id="" value="" />
+  <% let imageErr  = productError.find(err=> err.param ==="image") %>
+  <% if (imageErr) { %>
+  <span class="alert text-white fs-6 text-center"><%= imageErr.msg %> </span>
+  <% } %>
+    <% if (productAddError) { %>
+    <P class="alert alert-primary w-75 m-auto"><%= productAddError %> </P>
+    <% } %>
+  
+
+    <!-- <p>Do not have Account</p> -->
+    <button class="signup" type="submit">Add new Product</button>
+   
+  </form>
+
+</div>
+
+
+
+<%- include("./parts/footer.ejs")  %>

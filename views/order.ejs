@@ -1,0 +1,74 @@
+<%- include("./parts/heed.ejs")  %>
+
+<div class="container">
+  <%- include("./parts/nav.ejs")  %>
+  <% if (orders.length===0) { %>
+  <p class="alert alert-danger mt-5 text-center h1 w-75 m-auto">
+    there is no product in this order list
+  </p>
+  <% }else{ %>
+
+  <div class="cart-container mt-5 bg-light pb-4 ">
+    <div class="table-responsive">
+      <table class="table align-middle table-danger">
+        <% if (validationOrder) { %>
+        <p class="alert alert-danger">
+          <%= validationOrder.msg %>
+        </p>
+        <% } %>
+        <thead class="w-75">
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">product Name</th>
+            <th scope="col">price</th>
+            <th scope="col">amount</th>
+            <th scope="col">Cost</th>
+            <th scope="col">address</th>
+            <th scope="col">status</th>
+            <th scope="col">Cancel</th>
+          </tr>
+        </thead>
+        <tbody class="w-75">
+          <% for( let i = 0; i < orders.length; i++ ) { %>
+          <tr>
+            <td scope="col"><%= i+1 %> </td>
+            <td scope="col"><%= orders[i].name %> </td>
+            <td scope="col"><%= orders[i].price %></td>
+  
+            <td scope="col"><input type="Number" name="amount" class="form-control" value=<%= orders[i].amount %>></td>
+            <td scope="col"><%= orders[i].price*orders[i].amount %> </td>
+            <td scope="col"><%= orders[i].address %> </td>
+            <td scope="col"><%= orders[i].status %> </td>
+            <form method="post">
+              <td scope="col">
+               
+                <input type="hidden" name="orderId" value=<%=orders[i]._id  %>>
+                <input class="btn btn-danger" type="submit" value="Cancel" formaction="/order/delete">
+              </td>
+            </form>
+  
+  
+          </tr>
+          <% } %>
+  
+        </tbody>
+      </table>
+  
+    </div>
+    
+   
+    <form method="post" class="w-50 p-4">
+      <input type="submit" value="Cancel All" class="btn bg-info" formaction="/order/deleteAll">
+    </form>
+  </div>
+
+
+
+  <% } %>
+</div>
+
+
+
+
+
+<%- include("./parts/footer.ejs")  %>

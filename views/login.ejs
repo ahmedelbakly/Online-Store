@@ -1,0 +1,35 @@
+<%- include("./parts/heed.ejs")  %>
+
+
+<div class="container">
+  <%- include("./parts/nav.ejs")  %>
+  <form action="/login" method="post" class="form-login">
+    <h2 class="text-white">LOGIN</h2>
+    <input type="email" name="email" id="" placeholder="Email" />
+    <% let emailErr  = validationResultLogin.find(err=> err.param ==="email") %>
+    <% if (emailErr) { %>
+    <span class="alert text-white fs-6 text-center"><%= emailErr.msg %> </span>
+    <% } %>
+    <input type="password" name="password" id="" placeholder="password" />
+    <% let passwordErr  = validationResultLogin.find(err=> err.param ==="password") %>
+    <% if (passwordErr) { %>
+    <span class="alert text-white fs-6 text-center"><%= passwordErr.msg %> </span>
+    <% } %>
+    <% if (LoginError) { %>
+    <p class="alert text-white fs-6"><%= LoginError %> </p>
+    <% } %>
+    <div class="btn-con">
+      <button class="forget">forget password</button>
+      <button type="submit" class="login">login</button>
+    </div>
+    <p>Do not have Account</p>
+
+    <a style="text-decoration:none ; color:white;font-size:20px;" href="/signup">Signup</a>
+  </form>
+
+
+</div>
+
+
+
+<%- include("./parts/footer.ejs")  %>

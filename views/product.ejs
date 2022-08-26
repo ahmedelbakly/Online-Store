@@ -1,0 +1,59 @@
+<%- include("./parts/heed.ejs")  %>
+<%- include("./parts/nav.ejs")  %>
+
+<div class="container">
+
+  <% if (prod) { %>
+
+
+  <div class="row  mt-5 justify-content-around">
+
+    <div class="col col-12 col-md-5 mb-4 ">
+      <div class="/cart" style="width: 18rem;">
+        <img src="/<%= prod.image %>" class="card-img-top proudct-img" alt="...">
+        <hr style="width:90%; height:10px; margin:auto; color:red;" />
+        <div class="card-body">
+          <form action="/cart" method="post">
+
+            <input type="hidden" name="name" value=<%= prod.name %>>
+            <input type="hidden" name="price" value=<%= prod.price %>>
+            <input type="hidden" name="redirectTo" value="/product/<%= prod._id %>">
+            <input type="hidden" name="productId" value=<%= prod._id %>>
+            <% if (isUser) { %>
+            <input type="number" value="1" name="amount" class="form-control bg-danger" />
+            <input type="submit" value="Add to cart" class="btn btn-primary mt-2" />
+            <% } %>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-12 col-md-5 mb-4">
+      <div class="card" style="width: 18rem;">
+
+        <div class="card-body">
+          <h5 class="card-title"><a href="/product/<%= prod._id %>" class="link-primary"><%= prod.name %></a></h5>
+          <h6><%= prod.description %> </h6>
+          <p class="card-text">price: <%= prod.price %> EP</p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+  <% }else{ %>
+  <div class="alert alert-primary mt-5" role="alert">
+    <h2 class="text-center ">
+      I am sorry!<br />
+      this product is not found!
+    </h2>
+  </div>
+  <% } %>
+</div>
+
+
+<%- include("./parts/footer.ejs")  %>

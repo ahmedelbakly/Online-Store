@@ -1,0 +1,92 @@
+<%- include("./parts/heed.ejs")  %>
+
+<div class="container">
+  <%- include("./parts/nav.ejs")  %>
+  <% if (cards.length===0) { %>
+    <div class="empty w-75  rounded-3 ">
+      <p class="alert alert-primary rounded-2  text-center h1">
+        there is no product in this cart
+      </p>
+    </div>
+ 
+  <% }else{ %>
+
+  <div class="cart-container mt-5 bg-light pb-4 ">
+    <table class="table table-danger">
+      <% if (validationError) { %>
+      <p class="alert alert-warning">
+        <%= validationError.msg %>
+      </p>
+      <% } %>
+
+      <% if (validationAddress) { %>
+        <p class="alert alert-warning fs-5">
+    <%= validationAddress.msg %> 
+        </p>
+      <% } %>
+
+
+      <thead class="w-75">
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">product Name</th>
+          <th scope="col">price</th>
+          <th scope="col">amount</th>
+          <th scope="col">total</th>
+          <th scope="col">Address</th>
+        </tr>
+      </thead>
+      <tbody class="w-75">
+        <% for( let i = 0; i < cards.length; i++ ) { %>
+        <tr>
+          <td scope="col"><%= i+1 %> </td>
+          <td scope="col"><%= cards[i].name %> </td>
+          <td scope="col"><%= cards[i].price %></td>
+          <form method="POST">
+            <td scope="col"><input type="Number" name="amount" class="form-control" value=<%= cards[i].amount %>></td>
+            <td scope="col"><%= cards[i].price*cards[i].amount %> </td>
+            <td scope="col">
+
+              <input class="Address" type="text" name="address" value="" placeholder="add address before order">
+              <input type="hidden" name="cartId" value=<%= cards[i]._id %>>
+              <input type="hidden" name="name" value=<%= cards[i].name %>>
+              <input type="hidden" name="price" value=<%= cards[i].price %>>
+              <input type="hidden" name="userEmail" value=<%= cards[i].userEmail %>>
+              <input class="btn btn-success align-content-end" type="submit" value="save" formaction="/cart/save">
+              <input class="btn btn-success align-content-end" type="submit" value="Order" formaction="/order">
+              <input class="btn btn-danger" type="submit" value="Delete" formaction="/cart/delete">
+            </td>
+          </form>
+        </tr>
+        <% } %>
+
+      </tbody>
+    </table>
+
+    </table>
+    <% if (validationAddressAll) { %>
+      <p class="alert alert-warning fs-5">
+        <%= validationAddressAll.msg %> 
+            </p>
+          
+    <% } %>
+    <form method="post" class="w-50 p-4  d-flex justify-content-between align-items-center border-3 " >
+      
+      <input type="text" name="address" class= "form-control fs-5"  
+       value="" placeholder="Add your address to order all">
+      <input type="submit" value="Order All" class="btn bg-info" formaction="/order/orderAll">
+      <input type="submit" value="Delete All" class="btn bg-danger " formaction="/cart/deleteAll">
+     
+    </form>
+  </div>
+
+
+
+  <% } %>
+</div>
+
+
+
+
+
+<%- include("./parts/footer.ejs")  %>

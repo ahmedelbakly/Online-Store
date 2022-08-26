@@ -1,0 +1,104 @@
+body {
+  /* background-image: url("/bg2.jpg");
+  
+  background-repeat: no-repeat;
+  background-size: cover; */
+  padding-top: 10px;
+  background:#19283f;
+}
+
+.card-img-top {
+  width: 100%p;
+  height: 250px;
+}
+
+.link-primary {
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.form-control {
+  width: 50%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.nav-link{
+  color: rgb(255, 254, 254);
+}
+
+.nav-link:hover, .active {
+  color: #fe0202;
+}
+
+
+
+.proudct-img:hover {
+  width: 130%;
+  height: auto;
+}
+
+.navbar {
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  background: #19283f;
+}
+
+.formContainer {
+  width: 500px;
+  height: 500px;
+  background-color: rgb(255, 17, 0);
+  margin: auto;
+  margin-top: 100px;
+}
+
+.form {
+  width: 100%;
+}
+
+
+.logout {
+  margin-right: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.address-container {
+  width: 90%;
+  margin: auto;
+}
+.form-address {
+  margin: auto;
+}
+
+
+.form-group {
+  width: 90%;
+  margin: auto;
+}
+
+
+.Address{
+  font-size: 15px;
+  
+}
+
+
+.empty {
+  height: 400px;
+  background: rgb(4, 84, 255);
+  margin: auto;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}

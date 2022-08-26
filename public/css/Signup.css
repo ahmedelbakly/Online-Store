@@ -1,0 +1,148 @@
+
+
+.form-signup {
+  width: 500px;
+  border: 3px solid black;
+  text-align: center;
+  background: rgb(251, 249, 249);
+  margin: auto;
+  margin-top: 80px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgb(255, 4, 4);
+}
+
+.form-signup input,select{
+  width: 80%;
+  margin: 20px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  padding: 8px;
+  text-align: left;
+  font-size: 20px;
+}
+
+.btn-con {
+  width: 90%;
+  margin: auto;
+display: flex;
+flex-direction: column;  
+align-items: end;
+padding-right: 30px;
+}
+
+.login,
+.forget {
+  display: block;
+  text-align: center;
+  width: max-content;
+  margin-top: 10px;
+ 
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.login {
+  font-size: 20px;
+  background-color: rgba(8, 154, 252, 0.976);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 5px 20px;
+  color: white;
+}
+
+.forget {
+  border: none;
+  color: rgba(239, 60, 10, 0.942);
+  font-size: 18px;
+  background-color: black;
+}
+
+.signup {
+  width: 80%;
+  padding: 10px;
+  font-size: 20px;
+  background-color: rgb(4, 4, 4);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: white;
+  margin-top: 20px;
+}
+
+.form-signup p {
+  width: 90%;
+  font-style: italic;
+  font-size: 20px;
+  text-align: left;
+  padding-left: 55px;
+  color: rgb(7, 134, 245);
+}
+
+
+.form-signup label {
+    color: white;
+    margin-left: 0;
+    font-size:20px;
+    color: rgb(7, 134, 245);
+    font-weight: bold
+}
+
+.radio {
+    width: 20px;
+    font-size: 50px;
+    margin-right: 0;
+    padding-right: 0;
+    margin-right: 0;
+    text-align: left;
+}
+
+.navbar {
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.nav-link:hover {
+  color: rgb(3, 3, 3);
+}
+
+.form p {
+  width: 90%;
+  font-style: italic;
+  font-size: 20px;
+  text-align: left;
+  padding-left: 55px;
+  color: rgb(6, 6, 6);
+}
+
+.form-signup span{
+width: max-content;
+font-size: 15px;
+display: block;
+height:10px;
+padding-left: 20px;
+}

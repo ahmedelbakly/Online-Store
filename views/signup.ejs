@@ -1,0 +1,47 @@
+<%- include("./parts/heed.ejs")  %>
+
+
+<div class="container">
+  <%- include("./parts/nav.ejs")  %>
+  <form class="form-signup" action="/signup" method="POST">
+    <input type="text" name="username" id="" placeholder="username" />
+
+    <% let usernameErr  = validationResult.find(err=> err.param ==="username") %>
+    <% if (usernameErr) { %>
+    <span class="alert text-white fs-6 text-center"><%= usernameErr.msg %> </span>
+    <% } %>
+
+    <input type="email" name="email" id="" placeholder="Email" />
+
+    <% let emailErr  = validationResult.find(err=> err.param ==="email") %>
+    <% if (emailErr) { %>
+    <span class="alert text-white fs-6 text-center"><%= emailErr.msg %> </span>
+    <% } %>
+    <input type="password" name="password" id="" placeholder="password" />
+
+    <% let passwordErr  = validationResult.find(err=> err.param ==="password") %>
+    <% if (passwordErr) { %>
+    <span class="alert text-white fs-6 text-center"><%= passwordErr.msg %> </span>
+    <% } %>
+    <input type="password" name="retype-password" id="" placeholder="retype password" />
+
+    <% let retypePasswordErr  = validationResult.find(err=> err.param ==="retype-password") %>
+    <% if (retypePasswordErr) { %>
+    <span class="alert text-white fs-6 text-center"><%= retypePasswordErr.msg %> </span>
+    <% } %>
+
+    <% if (signupErr) { %>
+    <P class="alert alert-primary w-75 m-auto"><%= signupErr %> </P>
+    <% } %>
+    >
+
+    <!-- <p>Do not have Account</p> -->
+    <button class="signup" type="submit">Create account</button>
+    <p style="color: #000; margin-top: 5px;">Do you have Account? <a style="text-decoration: none ; color: white;" href="/login">login</a></p>
+  </form>
+
+</div>
+
+
+
+<%- include("./parts/footer.ejs")  %>

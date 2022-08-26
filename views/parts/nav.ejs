@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg  fs-5  sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand text-info fs-4" href="/">Omar Store</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="background-color: rgba(255, 0, 0, 0.418);color: #000;"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link<%= title === "Home"?" active":"" %> " aria-current="page" href="/">Home</a>
+          </li>
+          <% if(isUser){ %> 
+          <li class="nav-item">
+            <a  class="nav-link<%= title === "Cart"?" active":"" %> " href="/cart">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link<%= title === "Orders"?" active":"" %> " href="/order">Orders</a>
+          </li>
+          <% }else{ %> 
+          <li class="nav-item">
+            <a  class="nav-link<%= title === "Login"?" active":"" %> " href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link<%= title === "Signup"?" active":"" %> " href="/signup">Signup</a>
+          </li>
+         
+          <% } %> 
+<% if (isAdmin) { %>
+  <li class="nav-item">
+    <a  class="nav-link<%= title === "Add-Product"?" active":"" %> " href="/admin/add">Add product</a>
+  </li>
+
+  <li class="nav-item">
+    <a  class="nav-link<%= title === "Mange-Order"?" active":"" %> " href="/admin/mangeOrder">Mange Order</a>
+  </li>
+<% } %>
+         
+          
+          
+        </ul>
+      <% if (isUser) { %>
+        <form action="/logout" method="post" >
+          <input type="submit" value="logout"class="logout btn-danger p-2 fs-5">
+         </form>
+      <% } %>
+      </div>
+    </div>
+  </nav>

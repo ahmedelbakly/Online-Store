@@ -1,0 +1,108 @@
+<%- include("./parts/heed.ejs")  %>
+
+<div class="container">
+  <%- include("./parts/nav.ejs")  %>
+  <div class="filter d-flex justify-content-between overflow-hidden flex-wrap mt-5">
+    <form class="form text-dark  d-flex flex-row w-50  justify-content-center 
+      mb-5  pb-5" action="/admin/mangeOrder" method="get ">
+      <select class="form-select me-2 w-50" name="status" id="" placeholder="Filter Order" value=>
+        
+        <option value="all">All</option>
+        <option value="pending">Pending</option>
+        <option value="sent">Sent</option>
+        <option value="completed">Completed</option>
+      </select>
+      <input class="btn btn-primary" type="submit" value="Filter Orders">
+    </form>
+
+    <!-- ******************************************************************************************** -->
+
+    <form class="form text-dark  d-flex flex-row w-50  justify-content-center 
+      mb-5  pb-5" action="/admin/mangeOrderSr" method="get">
+      <input class=" form-control search w-75 me-2" type="email" name="email" id="" placeholder="Search by Email">
+      <input class="btn btn-primary" type="submit" value="Search">
+    </form>
+
+  </div>
+
+  <% if (AllOrders.length===0) { %>
+  <p class="alert alert-danger mt-5 text-center h1 w-75 m-auto">
+    there is no product in this order list
+  </p>
+  <% }else{ %>
+
+  <div class="cart-container mt-5 bg-light p-3  ">
+   
+    <table class="table table-danger mt-5">
+      <% if (validationMangeOrder) { %>
+      <p class="alert alert-danger">
+        <%= validationMangeOrder.msg %>
+      </p>
+      <% } %>
+      <thead class="w-75">
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Email</th>
+          <th scope="col">product Name</th>
+          <th scope="col">price</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Status</th>
+          <th scope="col">Save Status</th>
+          <th scope="col">Cost</th>
+          <th scope="col">Address</th>
+          
+        </tr>
+      </thead>
+      <tbody class="w-75">
+        <% for( let i = 0; i < AllOrders.length; i++ ) { %>
+        <tr>
+          <td scope="col"><%= i+1 %> </td>
+          <td scope="col"><%=AllOrders[i].userEmail  %> </td>
+          <td scope="col"><%= AllOrders[i].name %> </td>
+          <td scope="col"><%= AllOrders[i].price %></td>
+          <td scope="col"><%= AllOrders[i].amount %></td>
+
+          <td scope="col">
+            <form action="/admin/upDateStatus" method="post">
+              <select class="form-select me-2 " name="status" id="" value=<%=  %> >
+
+                <option value="pending"><%=AllOrders[i].status  %> </option>
+                <option value="pending">Pending</option>
+                <option value="sent">Sent</option>
+                <option value="completed">Completed</option>
+              </select>
+              <input type="hidden" name="orderId" value=<%=AllOrders[i]._id  %>>
+             <td><input class="btn btn-danger" type="submit" value="Save"></td> 
+            </form>
+          </td>
+
+
+          <td scope="col"><%= AllOrders[i].price*AllOrders[i].amount %> </td>
+          <td scope="col"><%= AllOrders[i].address %> </td>
+
+         
+
+
+        </tr>
+        <% } %>
+
+      </tbody>
+    </table>
+
+    </table>
+    <!-- <form method="post" class="w-50 p-4">
+      <input type="submit" value="Cancel All" class="btn bg-info" formaction="/order/deleteAll">
+    </form> -->
+  </div>
+
+
+
+  <% } %>
+
+</div>
+
+
+
+
+
+<%- include("./parts/footer.ejs")  %>
